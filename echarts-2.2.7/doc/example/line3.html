@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+
+    <link rel="shortcut icon" href="../asset/ico/favicon.png">
+
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../asset/css/bootstrap.css" rel="stylesheet">
+    <link href="../asset/css/carousel.css" rel="stylesheet">
+    <link href="../asset/css/echartsHome.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+
+    <link href="../asset/css/codemirror.css" rel="stylesheet">
+    <link href="../asset/css/monokai.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div id="main" class="main" style="height: 220px; width:100%">
+  <textarea id="code" name="code">
+
+option = {
+    title : {
+        text: '某楼盘销售情况',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['意向','预购','成交']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'成交',
+            type:'line',
+            smooth:true,
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[10, 12, 21, 54, 260, 830, 710]
+        },
+        {
+            name:'预购',
+            type:'line',
+            smooth:true,
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[30, 182, 434, 791, 390, 30, 10]
+        },
+        {
+            name:'意向',
+            type:'line',
+            smooth:true,
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[1320, 1132, 601, 234, 120, 90, 20]
+        }
+    ]
+};
+ttimee=1;
+
+
+     var Index01=new Array(0,0.036,0.072,0.108,0.144,0.18,0.216,0.252,0.288,0.324,0.36,0.396,0.432,0.468,0.504,0.54,0.576,0.612,0.648,0.684,0.72,0.756,0.792,0.85);
+     var Index02=new Array(0,0.05,0.06,0.061,0.0638,0.0679,0.075,0.0851,0.0982,0.1143,0.1334,0.1555,0.1806,0.2087,0.2398,0.2739,0.311,0.3511,0.3942,0.4403,0.4894,0.5415,0.5966,0.7);
+     var Index03=new Array(0,0.18,0.2545,0.3204,0.3827,0.4414,0.4965,0.548,0.5959,0.6402,0.6809,0.718,0.7515,0.7814,0.8077,0.8304,0.8495,0.865,0.8769,0.8852,0.8899,0.891,0.8885,0.9);
+
+clearInterval(timeTicket);
+
+timeTicket = setInterval(function (){
+
+    option.series[1].data.push(Index01[ttimee]);
+    option.series[0].data.push(Index02[ttimee]);
+    option.series[2].data.push(Index03[ttimee]);
+    
+    ttimee=ttimee+1;
+    myChart.setOption(option,true); 
+
+
+}, 1000);
+                    </textarea>
+</div>
+    
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../asset/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../asset/js/echartsHome.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+   <style>
+.fiv1{ 
+	width:100%; 
+	height:190px; 
+	float:top; 
+	margin:3px; 
+	border:0px #000 solid; 
+	background:#04564A
+}
+</style>
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+</head>
+
+<body>
+  <div id="main" class="fiv1"><textarea id="code" name="code">
+var idx = 1;
+option = {
+    timeline : {
+        data : [
+            '2013-01-01', '2013-02-01', '2013-03-01', '2013-04-01', '2013-05-01',
+            { name:'2013-06-01', symbol:'emptyStar6', symbolSize:8 },
+            '2013-07-01', '2013-08-01', '2013-09-01', '2013-10-01', '2013-11-01',
+            { name:'2013-12-01', symbol:'star6', symbolSize:8 }
+        ],
+        label : {
+            formatter : function(s) {
+                return s.slice(0, 7);
+            }
+        },
+		autoPlay:true,
+		show:false,
+    },
+    options : [
+        {
+            title : {
+                text: '河南各市电力负荷值',
+                x:'center',
+				 textStyle:{
+				 fontSize: 18,
+                 color: '#04564A'
+				 },
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+               show:false,
+			    data:['郑州','洛阳','开封','许昌','南阳','商丘'],
+				textStyle:{
+				fontSize: 8,
+                 color: 'red'
+				},
+				orient: 'vertical',
+		        x:'left',
+		        y:'center',
+            },
+            toolbox: {
+                show : true,
+              
+			  orient: 'vertical',
+		      x:'right',
+		      y:'center',
+			    feature : {
+                    mark : {show: false},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {
+                        show: true, 
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '1%',
+                                width: '60%',
+                                funnelAlign: 'left',
+                                max: 1700
+                            }
+                        }
+                    },
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    center: ['42%', '57%'],
+                    radius: '50%',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        },
+        {
+            series : [
+                {
+                    name:'',
+                    type:'pie',
+                    data:[
+                        {value: idx * 128 + 80,  name:'郑州'},
+                        {value: idx * 64  + 160,  name:'洛阳'},
+                        {value: idx * 32  + 320,  name:'开封'},
+                        {value: idx * 16  + 640,  name:'许昌'},
+                        {value: idx++ * 8  + 1280, name:'南阳'},
+						{value: idx++ * 8  + 128, name:'商丘'},
+                    ]
+                }
+            ]
+        }
+    ]
+};
+</textarea></div>
+<select id="theme-select" hidden="true"></select>
+ <span id='wrong-message' style="color:red"></span>
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

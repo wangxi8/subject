@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+   <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+    <style type="text/css">
+        .CodeMirror {
+            height: 420px;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="main" class="main" style="height: 420px;">
+  <textarea id="code" name="code">
+option = {
+    backgroundColor: '#1b1b1b',
+    color: ['gold','aqua','lime'],
+    title : {
+        text: '中国能源互联网实时工况', 
+        x:'center',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{b}'
+    },
+    legend: {
+        orient: 'vertical',
+        x:'left',
+        data:[],
+        selectedMode: 'single',
+        
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    toolbox: {
+        show : true,
+        orient : 'vertical',
+        x: 'right',
+        y: 'center',
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 100,
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+    series : [
+        {
+            name: '全国',
+            type: 'map',
+            roam: true,
+            hoverable: false,
+            mapType: 'china',
+            itemStyle:{
+                normal:{
+                    borderColor:'rgba(100,149,237,1)',
+                    borderWidth:0.5,
+                    areaStyle:{
+                        color: '#1b1b1b'
+                    }
+                }
+            },
+            data:[],
+            markLine : {
+                smooth:true,
+                symbol: ['none', 'circle'],  
+                symbolSize : 1,
+                itemStyle : {
+                    normal: {
+                        color:'#fff',
+                        borderWidth:1,
+                        borderColor:'rgba(30,144,255,0.5)'
+                    }
+                },
+                data :[],
+            },
+            geoCoord: {
+                '哈尔滨': [127,48],
+                '吉林': [125,44],
+                '沈阳': [124,41],	
+                '北京': [117,40],	
+                '赤峰': [115,45],	
+                '包头': [113,42],
+                '乌鲁木齐': [85,45], 
+                '酒泉': [97,40] ,
+                '拉萨': [90,30] ,
+                '玉树': [91,34] ,
+                '西宁': [97,36] ,
+                '宁夏': [106,37] ,
+                '兰州': [104,35] ,
+                '甘孜': [99,31] ,
+                '丽江': [99,28] ,
+                '普洱': [99,24] ,
+                '昆明': [102,25] ,
+                '成都': [103,30] ,
+                '贵阳': [107,27] ,
+                '重庆': [108,30] ,
+                '西安': [108,33] ,
+                '临汾': [112,34] ,
+                '太原': [112,38] ,
+                '呼和浩特': [108,41], 
+                '石家庄': [115,38] ,
+                '郑州': [115,33] ,
+                '合肥': [117,32],
+                '上海': [121.5,31],
+                '盐城': [120,34],
+                '台州': [121,29] ,
+                '福州': [119,26] ,
+                '广州': [116,24] ,
+                '南宁': [108,23] , 
+                '百色': [102,23] ,
+                '济南': [119,36] ,
+                '南昌': [116,28] ,
+                '赣州': [115,26] ,
+                '武汉': [113,31],
+                '长沙': [111,28],
+              
+            }
+        },
+        {
+            name: '',
+            type: 'map',
+            mapType: 'china',
+            data:[],
+            markLine : {
+                smooth:true,
+                effect : {
+                    show: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                itemStyle : {
+                   
+                   
+                    normal: {
+                     label:{show:false},
+                        borderWidth:1,
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    }
+                },
+                data : [
+                    [{name:'哈尔滨',value:38},{name:'吉林',smoothness:0}],
+				    [{name:'吉林',value:30},{name:'沈阳',smoothness:0}],
+                    [{name:'沈阳',value:48},{name:'北京',smoothness:0}],
+				    [{name:'吉林',value:92},{name:'北京',smoothness:0}],
+				    [{name:'赤峰',value:15},{name:'包头',smoothness:0}],
+				    [{name:'包头',value:37},{name:'北京',smoothness:0}],
+				    [{name:'呼和浩特',value:25},{name:'太原',smoothness:0}],
+					[{name:'太原',value:25},{name:'包头',smoothness:0}],
+					[{name:'济南',value:25},{name:'北京',smoothness:0}],
+                    [{name:'台州',value:85},{name:'上海',smoothness:0}],
+				    [{name:'福州',value:33}, {name:'台州',smoothness:0}],
+				    [{name:'盐城',value:33},{name:'上海',smoothness:0}],
+				    [{name:'合肥',value:33},{name:'上海',smoothness:0}],
+					[{name:'武汉',value:33},{name:'合肥',smoothness:0}],			
+                    [{name:'台州',value:33}, {name:'南昌',smoothness:0}],
+                    [{name:'南昌',value:33}, {name:'武汉',smoothness:0}],
+                    [{name:'广州',value:65},{name:'赣州',smoothness:0}],
+                    
+				    [{name:'赣州',value:65}, {name:'武汉',smoothness:0}],
+                    
+					[{name:'百色',value:65}, {name:'南宁',smoothness:0}],
+                    [{name:'济南',value:24},{name:'郑州',smoothness:0}],
+					[{name:'南宁',value:7}, {name:'赣州',smoothness:0}],
+                    [{name:'郑州',value:35},{name:'武汉',smoothness:0}],
+					[{name:'长沙',value:46}, {name:'武汉',smoothness:0}],  
+                    [{name:'石家庄',value:42},{name:'郑州',smoothness:0}],
+                    [{name:'临汾',value:44},{name:'石家庄',smoothness:0}],
+                    [{name:'临汾',value:88},{name:'太原',smoothness:0}],
+                    [{name:'酒泉',value:2},{name:'宁夏',smoothness:0}],
+                    [{name:'太原',value:29},{name:'宁夏',smoothness:0}],
+                    [{name:'西安',value:49},{name:'临汾',smoothness:0}],
+                    [{name:'重庆',value:34},{name:'西安',smoothness:0}],
+                    [{name:'重庆',value:28},{name:'长沙',smoothness:0}],
+                    [{name:'贵阳',value:47},{name:'重庆',smoothness:0}],
+                    [{name:'成都',value:22},{name:'贵阳',smoothness:0}],
+                    [{name:'昆明',value:16},{name:'贵阳',smoothness:0}],
+                    [{name:'普洱',value:11},{name:'昆明',smoothness:0}],
+                    [{name:'拉萨',value:19},{name:'甘孜',smoothness:0}],
+                     [{name:'甘孜',value:20},{name:'丽江',smoothness:0}],
+                    [{name:'临汾',value:15},{name:'西安',smoothness:0}],
+                    [{name:'兰州',value:52},{name:'西安',smoothness:0}],
+                    [{name:'太原',value:5},{name:'临汾',smoothness:0}],
+                    [{name:'甘孜',value:2},{name:'玉树',smoothness:0}],
+                    [{name:'甘孜',value:8},{name:'兰州',smoothness:0}],
+                    [{name:'酒泉',value:9},{name:'乌鲁木齐',smoothness:0}],
+                     [{name:'乌鲁木齐',value:89},{name:'西宁',smoothness:0}],
+                     [{name:'玉树',value:49},{name:'西宁',smoothness:0}],
+                     [{name:'西宁',value:1},{name:'兰州',smoothness:0}],
+                    [{name:'丽江',value:59},{name:'成都',smoothness:0}],
+                     [{name:'昆明',value:53},{name:'丽江',smoothness:0}],
+                    
+                    
+                    
+                  
+					
+                ]
+            },
+            markPoint : {
+                symbol:'emptyCircle',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 0
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
+                    }
+                },
+                data : [
+                    {name:'上海',value:75},
+                    {name:'北京',value:95},
+                    {name:'成都',value:35},
+					{name:'广州',value:75},
+					{name:'西宁',value:5},
+					{name:'拉萨',value:45},
+                ]
+            }
+        },
+       
+    ]
+};
+ </textarea>
+ </div>        
+<select id="theme-select" hidden="true"></select>
+<span id='wrong-message' style="color:red"></span>
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../../build/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+       option = {
+            title: {
+                text: 'IEEE 30节点系统监控图',
+                x:'center',
+                y:'top',
+                
+                textStyle:{
+                    fontSize:18,
+                    color:'#04564A'
+                }
+            },
+            legend: {
+                data:['PQ节点','PV节点','平衡节点'],
+                x:'40px',
+               
+                y:'500px',
+                
+            },
+            tooltip: {},
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            toolbox: {
+                show : true,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                },
+                orient: 'vertical',
+                x:'0px',
+                y:'center',
+            },
+            series : [
+                {
+                    name: 'PQ节点',
+
+                    type: 'graph',
+                    layout: 'none',
+                    symbolSize: 40,
+                    roam: true,
+                    label: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 10],
+                    edgeLabel: {
+                        normal: {
+                            textStyle: {
+                                fontSize: 20
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            name: '节点1',
+                            x: 550,
+                            y: 100,
+                            label:{
+                                normal:{
+                                    fontSize:20
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'blue',
+                                }
+                            }
+                        },
+                        {
+                            name: '节点3',
+                            x: 550,
+                            y: 300,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                         }, 
+                         {
+                            name: '节点13',
+                            x: 300,
+                            y: 400,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'#85BF41',
+                                }
+                            }
+                         },
+                         {
+                            name: '节点14',
+                            x: 300,
+                            y: 600,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                             name: '节点23',
+                             x: 300,
+                             y: 1000,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                         }, 
+                         {
+                             name: '节点2',
+                             x: 800,
+                             y: 100,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'#85BF41',
+                                }
+                            }
+                         },
+                         {
+                            name: '节点4',
+                            x: 800,
+                            y: 300,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        }, 
+                        {
+                            name: '节点12',
+                            x: 675,
+                            y: 500,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点15',
+                            x: 675,
+                            y: 700,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点18',
+                            x: 675,
+                            y: 900,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点16',
+                            x: 925,
+                            y: 700,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点19',
+                            x: 925,
+                            y: 900,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点11',
+                            x: 1050,
+                            y: 400,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'#85BF41',
+                                }
+                            }
+                        },
+                        {
+                            name: '节点5',
+                            x: 1050,
+                            y: 100,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'#85BF41',
+                                }
+                            }
+                        },
+                        {
+                            name: '节点9',
+                            x: 1175,
+                            y: 400,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+
+                        {
+                            name: '节点17',
+                            x: 1175,
+                            y: 700,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+
+                        {
+                            name: '节点20',
+                            x: 1175,
+                            y: 900,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+
+                        {
+                            name: '节点7',
+                            x: 1300,
+                            y: 100,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+
+                        {
+                            name: '节点6',
+                            x: 1300,
+                            y: 300,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+
+                        {
+                            name: '节点10',
+                            x: 1300,
+                            y: 700,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点21',
+                            x: 1300,
+                            y: 900,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点22',
+                            x: 1550,
+                            y: 900,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点24',
+                            x: 1550,
+                            y: 1000,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点8',
+                            x: 1800,
+                            y: 100,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    color:'#85BF41',
+                                }
+                            }
+                        },
+                        {
+                            name: '节点28',
+                            x: 1925,
+                            y: 300,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点27',
+                            x: 2050,
+                            y: 700,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点25',
+                            x: 2050,
+                            y: 1000,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点29',
+                            x: 2300,
+                            y: 500,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点30',
+                            x: 2300,
+                            y: 800,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                        },
+                        {
+                            name: '节点26',
+                            x: 2300,
+                            y: 1000,
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            }
+                         }
+                     ],
+                     links: [],
+                    links: [
+                        {
+                            source: 0,
+                            target: 1,
+                            symbolSize: [5, 20],
+                            label: {
+                                normal: {
+                                    show: true
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+                                    width: 5,
+                                    curveness: 0.2
+                                }
+                            }
+                        }, {
+                            source: '节点1',
+                            target: '节点2',
+                            label: {
+                                normal: {
+                                    show: true
+                                }
+                            },
+                            lineStyle: {
+                                normal: { curveness: 0.2 }
+                            }
+                        }, {
+                            source: '节点1',
+                            target: '节点3'
+                        }, {
+                            source: '节点2',
+                            target: '节点4'
+                        }, {
+                            source: '节点3',
+                            target: '节点4'
+                        }, {
+                            source: '节点2',
+                            target: '节点5'
+                        },
+                        {
+                            source: '节点2',
+                            target: '节点5'
+                        },
+                                                {
+                            source: '节点2',
+                            target: '节点6'
+                        },
+                        {
+                            source: '节点4',
+                            target: '节点6'
+                        },
+                        {
+                            source: '节点5',
+                            target: '节点7'
+                        },                        
+                        {
+                            source: '节点6',
+                            target: '节点7'
+                        },
+                        {
+                            source: '节点6',
+                            target: '节点8'
+                        },
+                        {
+                            source: '节点6',
+                            target: '节点9'
+                        },
+                        {
+                            source: '节点6',
+                            target: '节点10'
+                        },
+                        {
+                            source: '节点9',
+                            target: '节点11'
+                        },
+                        {
+                            source: '节点9',
+                            target: '节点10'
+                        },
+                        {
+                            source: '节点4',
+                            target: '节点12'
+                        },
+                        {
+                            source: '节点12',
+                            target: '节点13'
+                        },
+                        {
+                            source: '节点12',
+                            target: '节点14'
+                        },
+                        {
+                            source: '节点12',
+                            target: '节点15'
+                        },
+                        {
+                            source: '节点12',
+                            target: '节点16'
+                        },
+                        {
+                            source: '节点14',
+                            target: '节点15'
+                        },
+                        {
+                            source: '节点16',
+                            target: '节点17'
+                        },
+                        {
+                            source: '节点15',
+                            target: '节点18'
+                        },
+                        {
+                            source: '节点18',
+                            target: '节点19'
+                        },
+                        {
+                            source: '节点19',
+                            target: '节点20'
+                        },
+                        {
+                            source: '节点10',
+                            target: '节点20'
+                        },
+                        {
+                            source: '节点10',
+                            target: '节点17'
+                        },
+                        {
+                            source: '节点10',
+                            target: '节点21'
+                        },
+                        {
+                            source: '节点10',
+                            target: '节点22'
+                        },
+                        {
+                            source: '节点21',
+                            target: '节点22'
+                        },
+                        {
+                            source: '节点15',
+                            target: '节点23'
+                        },
+                        {
+                            source: '节点22',
+                            target: '节点24'
+                        },
+                        {
+                            source: '节点23',
+                            target: '节点24'
+                        },
+                        {
+                            source: '节点24',
+                            target: '节点25'
+                        },
+                        {
+                            source: '节点25',
+                            target: '节点26'
+                        },
+                        {
+                            source: '节点25',
+                            target: '节点27'
+                        },
+                        {
+                            source: '节点28',
+                            target: '节点27'
+                        },
+                        {
+                            source: '节点27',
+                            target: '节点29'
+                        },
+                        {
+                            source: '节点27',
+                            target: '节点30'
+                        },
+                        {
+                            source: '节点29',
+                            target: '节点30'
+                        },
+                        {
+                            source: '节点8',
+                            target: '节点28'
+                        },
+                        {
+                            source: '节点6',
+                            target: '节点28'
+                        },
+
+                    ],
+                    lineStyle: {
+                        normal: {
+                            opacity: 0.9,
+                            width: 2,
+                            curveness: 0
+                        }
+                    },
+                    markPoint : {
+                        symbol:'image://../asset/img/wind.png',
+                        // symbolSize : function (v){
+                        //     return 10 + v/10
+                        // },
+                        // effect : {
+                        //     show: true,
+                        //     shadowBlur : 1
+                        // },
+                        // itemStyle:{
+                        //     normal:{
+                        //         label:{show:false}
+                        //     },
+                        //     emphasis: {
+                        //         label:{position:'top'}
+                        //     }
+                        // },
+                        // symbolRotate:45,
+                        data : [
+                            // {name:'节点2',},
+                           
+                        ]
+                    }
+                },
+                {
+                    name: 'PV节点',
+
+                    type: 'graph',
+                    layout: 'none',
+                    symbolSize: 30,
+                    roam: true,
+                    label: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 10],
+                    edgeLabel: {
+                        normal: {
+                            textStyle: {
+                                fontSize: 10
+                            }
+                        }
+                    },
+                    itemStyle: {   
+                         normal : {
+                             color:  '#85BF41',  //控制点的颜色
+
+                         },
+                    },
+                    data: []
+                },
+                {
+                    name: '平衡节点',
+                    type: 'graph',
+                    layout: 'none',
+                    symbolSize: 30,
+                    roam: true,
+                    label: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 10],
+                    edgeLabel: {
+                        normal: {
+                            textStyle: {
+                                fontSize: 10
+                            }
+                        }
+                    },
+                    itemStyle:{
+                        normal:{
+                            color:'blue',
+                        }
+                    },
+                    data: []
+                }
+            ]
+        };
+        for (var i = option.series[0].data.length - 1; i >= 0; i--) {
+            // console.log(option.series[0].data[i]);
+            option.series[0].data[i].label.normal.fontSize = 12;
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

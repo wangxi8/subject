@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+    <style type="text/css">
+        .CodeMirror {
+            height: 220px;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="main" class="main" style="height: 220px;">
+  <textarea id="code" name="code">
+option = {
+    backgroundColor: '#1b1b1b',
+    color: ['gold','aqua','lime'],
+    title : {
+        show:false,
+		text: '全球能源互联网实时工况',
+        x:'center',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{b}'
+    },
+    legend: {
+        orient: 'horizontal',
+        x:'left',
+		y:'bottom',
+        data:[],
+        selectedMode: 'single',
+        
+        textStyle : {
+            color: '#fff'	
+        }
+    },
+    toolbox: {
+        show : true,
+        orient : 'vertical',
+        x: 'right',
+        y: 'center',
+        feature : {
+            mark : {show: false},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 100,
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        orient: 'horizontal',
+        x:'left',
+		y:'bottom',
+        textStyle:{
+            color:'#fff'
+        }
+    },
+    series : [
+        {
+            name: '全国',
+            type: 'map',
+            roam: true,
+            hoverable: false,
+            mapType: 'world',
+            itemStyle:{
+                normal:{
+                    borderColor:'rgba(100,149,237,1)',
+                    borderWidth:0.5,
+                    areaStyle:{
+                        color: '#1b1b1b'
+                    }
+                }
+            },
+            data:[],
+            markLine : {
+                smooth:true,
+                symbol: ['none', 'circle'],  
+                symbolSize : 1,
+                itemStyle : {
+                    normal: {
+                        color:'#fff',
+                        borderWidth:1,
+                        borderColor:'rgba(30,144,255,0.5)'
+                    }
+                },
+                data :[],
+            },
+            geoCoord: {
+                'Canada': [-70,60],
+                'Brazil': [-60,-20],
+                'United states of America': [-150,65],
+                'Iceland': [-20,65],
+                'Greenland': [-40,75],
+                'Mexico': [-110,30],
+                'Norway': [15,80],
+                'Turkey': [0,40],
+                'Russia': [150,65],
+                'China': [115.0488,42],
+                'Sweden': [50,62],
+                'India': [80,20],
+	            'France': [0,41.4899],
+	            'Malawi': [20,-10],
+                'Australia': [130,-20],
+			    '包头': [110.3467,41.4899],
+             
+            }
+        },
+        {
+            name: '',
+            type: 'map',
+            mapType: 'world',
+            data:[],
+            markLine : {
+                smooth:true,
+                effect : {
+                    show: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                itemStyle : {
+                    normal: {
+                        borderWidth:1,
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    }
+                },
+                data : [
+                    [{name:'Turkey',value:98},{name:'China',smoothness:0.2}],
+                    [{name:'China',value:92},{name:'Russia',smoothness:0.2}],
+				    [{name:'Mexico',value:15},{name:'Brazil',smoothness:0.2}],
+				    [{name:'Mexico',value:37},{name:'Canada',smoothness:0.2}],
+				    [{name:'United states of America',value:25},{name:'Mexico',smoothness:0.2}],
+				    [{name:'United states of America',value:33},{name:'Canada',smoothness:0.2}],
+                    [{name:'Canada'}, {name:'Iceland',value:30}],
+                    [{name:'Canada'}, {name:'Greenland',value:45}],
+				    [{name:'Mexico'}, {name:'Turkey',value:47}],
+					[{name:'Mexico'}, {name:'Malawi',value:35}],
+					[{name:'Turkey'}, {name:'Malawi',value:10}],
+					[{name:'Turkey'}, {name:'Sweden',value:38}],
+					[{name:'Turkey'}, {name:'India',value:74}],  
+					[{name:'Greenland'}, {name:'Sweden',value:66}],
+                    [{name:'Iceland'}, {name:'Sweden',value:53}],
+					[{name:'Sweden'}, {name:'Russia',value:42}],
+					[{name:'India',value:83},{name:'China',smoothness:0.2}],
+					[{name:'India',value:85},{name:'Australia',smoothness:0.2}],
+					[{name:'China',value:89},{name:'Australia',smoothness:0.2}],
+					[{name:'Malawi',value:65},{name:'India',smoothness:0.2}],
+                ]
+            },
+            markPoint : {
+                symbol:'emptyCircle',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 0
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
+                    }
+                },
+                data : [
+                    {name:'China',value:95},   
+                ]
+            }
+        },
+       
+    ]
+};
+ </textarea>
+ </div>        
+<select id="theme-select" hidden="true"></select>
+<span id='wrong-message' style="color:red"></span>
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

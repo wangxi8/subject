@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+    <style type="text/css">
+        .CodeMirror {
+            height: 220px;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="main" class="main" style="height: 220px;">
+  <textarea id="code" name="code">
+option = {
+    backgroundColor: '#1b1b1b',
+    color: ['gold','aqua','lime'],
+    title : {
+		show:false,
+		text: '',
+        x:'center',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{b}'
+    },
+    legend: {
+        orient: 'vertical',
+        x:'left',
+        data:[],
+        selectedMode: 'single',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    toolbox: {
+        show : true,
+        orient : 'vertical',
+        x: 'right',
+        y: 'center',
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 100,
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+    series : [
+        {
+            name: '全国',
+            type: 'map',
+            roam: true,
+            hoverable: false,
+            mapType: 'china',
+            itemStyle:{
+                normal:{
+                    borderColor:'rgba(100,149,237,1)',
+                    borderWidth:0.5,
+                    areaStyle:{
+                        color: '#1b1b1b'
+                    }
+                }
+            },
+            data:[],
+            markLine : {
+                smooth:true,
+                symbol: ['none', 'circle'],  
+                symbolSize : 1,
+                itemStyle : {
+                    normal: {
+                        color:'#fff',
+                        borderWidth:1,
+                        borderColor:'rgba(30,144,255,0.5)'
+                    }
+                },
+                data :[],
+            },
+            geoCoord: {
+                '上海': [121.4648,31.2891],
+                '北京': [116.4551,40.2539],
+			    '合肥': [117.29,32.0581],
+			    '呼和浩特': [111.4124,40.4901], 
+			    '哈尔滨': [127.9688,45.368], 
+			    '西安': [109.1162,34.2004],
+                '贵阳': [106.6992,26.7682],
+				'乌鲁木齐': [87.9236,43.5883],
+			    '拉萨': [91.1865,30.1465],
+				'海口': [110.3893,19.8516],
+				'南宁': [108.479,23.1152],
+				'昆明': [102.9199,25.4663], 
+			    '银川': [106.3586,38.1775],
+			    '武汉': [114.3896,30.6628],
+		        '沈阳': [123.1238,42.1216],		
+			    '广州': [113.5107,23.2196],
+                '南昌': [116.0046,28.6633],
+                '成都': [103.9526,30.7617],   
+                '济南': [117.1582,36.8701],
+                '福州': [119.4543,25.9222], 
+                '西宁': [101.4038,36.8207],
+                '郑州': [113.4668,34.6234],
+                '长沙': [113.0823,28.2568],
+            }
+        },
+        {
+            name: '',
+            type: 'map',
+            mapType: 'china',
+            data:[],
+            markLine : {
+                smooth:true,
+                effect : {
+                    show: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                itemStyle : {
+                    normal: {
+                        borderWidth:1,
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    }
+                },
+                data : [
+                    [{name:'乌鲁木齐',value:38},{name:'北京',smoothness:0.2}],
+				    [{name:'乌鲁木齐',value:30},{name:'西宁',smoothness:0.2}],
+                    [{name:'乌鲁木齐',value:48},{name:'拉萨',smoothness:0.2}],
+				    [{name:'北京',value:92},{name:'哈尔滨',smoothness:0.2}],
+				    [{name:'西宁',value:15},{name:'北京',smoothness:0.2}],	
+				    [{name:'拉萨',value:37},{name:'西宁',smoothness:0.2}],
+				    [{name:'拉萨',value:25},{name:'成都',smoothness:0.2}],
+					[{name:'昆明',value:25},{name:'广州',smoothness:0.2}],
+					[{name:'昆明',value:25},{name:'长沙',smoothness:0.2}],
+					[{name:'成都'}, {name:'昆明',value:45}],
+				    [{name:'成都',value:33},{name:'上海',smoothness:0.2}],
+				    [{name:'郑州',value:33},{name:'上海',smoothness:0.2}],
+					[{name:'郑州',value:33},{name:'北京',smoothness:0.2}],
+                    [{name:'西宁'}, {name:'西安',value:30}],
+                    [{name:'成都'}, {name:'西安',value:45}],
+				    [{name:'西安'}, {name:'北京',value:47}],
+					[{name:'西安'}, {name:'郑州',value:35}],
+					[{name:'西宁'}, {name:'成都',value:10}],
+					[{name:'长沙'}, {name:'上海',value:74}],  
+					[{name:'成都'}, {name:'长沙',value:66}],
+                    [{name:'长沙'}, {name:'广州',value:53}],
+					[{name:'拉萨'}, {name:'昆明',value:42}],
+					[{name:'长沙',value:83},{name:'福州',smoothness:0.2}],
+					[{name:'福州',value:85},{name:'上海',smoothness:0.2}],
+					[{name:'郑州',value:89},{name:'济南',smoothness:0.2}],
+					[{name:'济南',value:89},{name:'北京',smoothness:0.2}],
+					[{name:'济南',value:89},{name:'沈阳',smoothness:0.2}],
+					[{name:'济南',value:89},{name:'上海',smoothness:0.2}],
+					[{name:'沈阳',value:89},{name:'哈尔滨',smoothness:0.2}],
+					[{name:'昆明',value:65},{name:'海口',smoothness:0.2}],
+					[{name:'海口',value:65},{name:'广州',smoothness:0.2}],
+					[{name:'广州',value:65},{name:'福州',smoothness:0.2}],
+                ]
+            },
+            markPoint : {
+                symbol:'emptyCircle',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 0
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
+                    }
+                },
+                data : [
+                    {name:'郑州',value:75},
+                ]
+            }
+        },
+       
+    ]
+};
+ </textarea>
+ </div>        
+<select id="theme-select" hidden="true"></select>
+<span id='wrong-message' style="color:red"></span> 
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>全球能源互联网全景安全防御平台</title>  
+<style>
+.froudiv1{ 
+	width:100%; 
+	height:38px; 
+	float:center; 
+	margin-top:0px; 
+	background:#04564A
+}
+</style>
+<script type="text/javascript"> 
+var timenew; 
+var s;  
+function jialing(s){//当获取的时间值小于10时，加一个0，如9显示为09 
+ if(s<10){  
+  s="0"+s;   
+   return s;  
+    }else{   
+	return s;}  } 
+	 function showTime(){ 
+	  var date=new Date();
+	  //获取系统当前时间 
+	  var second=date.getSeconds(); 
+	  var month=date.getMonth()+1; 
+	  var da=date.getDate(); 
+	  var hour=date.getHours(); 
+	  var minute=date.getMinutes(); 
+		  second=jialing(second);  
+		  minute=jialing(minute); 
+		  hour=jialing(hour); 
+		  da=jialing(da);  
+		  month=jialing(month);  
+		  var weekday=new Array(7); 
+		  weekday[0]="星期日";  
+		  weekday[1]="星期一"; 
+		  weekday[2]="星期二"; 
+		  weekday[3]="星期三";  
+		  weekday[4]="星期四"; 
+		  weekday[5]="星期五"; 
+		  weekday[6]="星期六";  
+		  var strDate=date.getFullYear()+'年'+month+'月'+da+'日'+weekday[date.getDay()]+hour+':'+minute+':'+second;          var span = document.getElementById('showDate');   
+		  span.innerHTML = strDate;  
+		    timerId = setTimeout('showTime()',1000);//每1秒自动刷新一次，时间显示为按秒跳动 
+	  }  
+	  function winclose(){  if(confirm("确定退出？")){//弹出对话框，询问是否删除。		
+	   window.close();   }  }   
+ </script> 
+</head>
+<body  onLoad="showTime()">
+     <div class="froudiv1"><span id="showDate" style="color:#FFF; margin-left:30px;"></span></div>
+</body>
+</html>

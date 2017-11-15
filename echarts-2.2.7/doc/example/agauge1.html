@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+    <link href="../asset/css/echartsHome.css" rel="stylesheet">
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+<style>
+.fivdiv2{ 
+	width:38%; 
+	height:300px; 
+	float:top; 
+	margin:3px; 
+	border:0px #000 solid; 
+	background:#04564A
+}
+</style>
+</head>
+
+<body>  
+<div id="main" class="fivdiv2">
+<textarea id="code" name="code">
+ option = {
+    backgroundColor: '#000000',
+    tooltip : { 
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    series : [
+        {
+            name:'电网整体安全指标',
+            type:'gauge',
+			 center : ['50%', '60%'],    // 默认全局居中
+			   radius : '85%',
+            min:0,
+            max:1,
+            splitNumber:5,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.2, '#ff4500'],[0.8, '#1e90ff'],[1, 'lime']],
+                    width: 4,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {            // 坐标轴小标记
+                textStyle: {       // 属性lineStyle控制线条样式
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length :12,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            splitLine: {           // 分隔线
+                length :20,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:2,
+                    color:  'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {           // 分隔线
+                width:2,
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 10
+            },
+            title : {
+                 offsetCenter: ['0%', '-120%'],    
+                 textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                 //   fontWeight: 'bolder',
+                    fontSize: 18,
+                   // fontStyle: 'italic',
+                    color: '#FFFFFF',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail : {
+
+                offsetCenter: [0, '50%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+               //     fontWeight: 'bolder',
+                    fontSize: 25,
+                    color: 'auto'
+                }
+            },
+            data:[{value: 4, name: '电网整体安全指标'}]
+        },
+		
+		
+        {
+            name:'分区1',
+            type:'gauge',
+            center : ['19%', '60%'],    // 默认全局居中
+            radius : '60%',
+            min:0,
+            max:1,
+	        startAngle:250,
+            endAngle:60,
+            splitNumber:2,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                  color: [[0.2, '#ff4500'],[0.8, '#1e90ff'],[1, 'lime']],
+                    width: 3,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {            // 坐标轴小标记
+                textStyle: {       // 属性lineStyle控制线条样式
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length :6,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            splitLine: {           // 分隔线
+                length :12,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:1,
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width:1,
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 10
+            },
+            title : {
+                offsetCenter: ['-30%', '-130%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    color: '#FFFFFF',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail : {
+              show: true,
+             offsetCenter: ['-10%', '75%'],       // x, y，单位px
+				textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    fontSize: 10,
+                    color: 'auto'
+                }
+            },
+            data:[{value: 4, name: '分区1'}]
+        },
+		
+		
+        {
+            name:'分区2',
+            type:'gauge',
+            center : ['85%', '50%'],    // 默认全局居中
+            radius : '30%',
+            min:0,
+            max:1,
+            startAngle:240,
+            endAngle:30,
+            splitNumber:2,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                   color: [[0.2, '#ff4500'],[0.8, '#1e90ff'],[1, 'lime']],
+                    width: 1.5,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length :5,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {
+                show: false,
+			    textStyle: {       // 属性lineStyle控制线条样式
+                    fontWeight: 'bolder',
+                    
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                },
+         
+            },
+            splitLine: {           // 分隔线
+                length :8,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:3,
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width:2,
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 10
+            },
+            title : {
+                 offsetCenter: ['-100%', '-185%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    color: '#FFFFFF',
+                    offsetCenter: [0, '50%'],    
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail : {
+               show:true,
+	           offsetCenter: ['60%', '-260%'],       // x, y，单位px
+               textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                    fontSize: 14,
+                }
+            },
+            data:[{value: 1, name: '分区2'}]
+        },
+	
+			
+        {
+            name:'分区3',
+            type:'gauge',
+            center : ['88%', '75%'],    // 默认全局居中
+            radius : '30%',
+            min:0,
+            max:1,
+            startAngle:240,
+            endAngle:30,
+            splitNumber:2,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                  color: [[0.2, '#ff4500'],[0.8, '#1e90ff'],[1, 'lime']],
+                    width: 1.5,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+               length :5,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {
+               show: false,
+			   
+			    textStyle: {       // 属性lineStyle控制线条样式
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                },
+             
+            },
+            splitLine: {           // 分隔线
+                length :8,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:3,
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width:2,
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 10
+            },
+            title : {
+               offsetCenter: ['-100%', '140%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    color: '#FFFFFF',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+
+                }
+            },
+            detail : {
+                offsetCenter: ['60%', '65%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                    fontSize: 14,
+                }
+            },
+            data:[{value:0.1, name: '分区3'}]
+        },
+		
+	{
+            name:'分区4',
+            type:'gauge',
+            center : ['80%', '60%'],    // 默认全局居中
+            radius : '60%',
+            min: 0,
+            max:1,
+            startAngle:120,
+            endAngle:-70,
+           splitNumber:1,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                  color: [[0.2, '#ff4500'],[0.8, '#1e90ff'],[1, 'lime']],
+                    width: 3,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+               length :24,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    width: 0,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {
+                 show: false,
+ 
+                 textStyle: {       // 属性lineStyle控制线条样式
+                    show: false,
+                    fontWeight: 'bolder',
+                    color: 'auto',
+                                     
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                },
+           },
+            splitLine: {           // 分隔线
+                length :30,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:0,
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width:2,
+                length:'0',
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 0
+            },
+            title : {
+               offsetCenter: [0, '-30%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 0
+                }
+            },
+            detail : {
+                offsetCenter: [0, '300%'],       // x, y，单位px
+            },
+            data:[{value:1.5, name: ''}]
+        },	
+    ]
+};
+
+clearInterval(timeTicket);
+timeTicket = setInterval(function (){
+    option.series[0].data[0].value = (Math.random()*1).toFixed(2) - 0;
+    option.series[1].data[0].value = (Math.random()*1).toFixed(2) - 0;
+    option.series[2].data[0].value = (Math.random()*1).toFixed(2) - 0;
+    option.series[3].data[0].value = (Math.random()*1).toFixed(2) - 0;
+    myChart.setOption(option,true);
+},2000)
+    </textarea> </div>
+ <select id="theme-select" hidden="true"></select>
+ <span id='wrong-message' style=""></span>
+ <script src="../asset/js/jquery.min.js"></script>
+ <script type="text/javascript">var timeTicket;</script>
+ <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

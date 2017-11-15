@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+    <style type="text/css">
+        .CodeMirror {
+            height: 420px;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="main" class="main" style="height: 420px; " >
+  <textarea id="code" name="code">
+option = {
+    backgroundColor: '#1b1b1b',
+    color: ['gold','aqua','lime'],
+    title : {
+        text: '河南电网实时工况',
+        x:'center',
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{b}'
+    },
+    legend: {
+        orient: 'vertical',
+        x:'left',
+        data:[],
+        selectedMode: 'single',
+        
+        textStyle : {
+            color: '#fff'
+        }
+    },
+    toolbox: {
+        show : true,
+        orient : 'vertical',
+        x: 'right',
+        y: 'center',
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataRange: {
+        min : 0,
+        max : 100,
+        calculable : true,
+        color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+        textStyle:{
+            color:'#fff'
+        }
+    },
+    series : [
+        {
+            name: '全国',
+            type: 'map',
+            roam: true,
+            hoverable: false,
+            mapType: '河南',
+            itemStyle:{
+                normal:{
+                label:{show:true},//显示地图上的地名
+                    borderColor:'rgba(100,149,237,1)',
+                    borderWidth:0.5,
+                    areaStyle:{
+                        color: '#1b1b1b'
+                    }
+                }
+            },
+            data:[],
+            markLine : {
+                smooth:true,
+                symbol: ['none', 'circle'],  
+                symbolSize : 1,
+                itemStyle : {
+                    normal: {
+                        color:'#fff',
+                        borderWidth:1,
+                        borderColor:'rgba(30,144,255,0.5)'
+                    }
+                },
+                data :[],
+            },
+            geoCoord: {
+                '彰德': [114,36.06], 
+				'洹安': [114.35,36.06],
+                '仓颉': [115.03,35.77],
+                '塔铺': [114,35.15],
+                '获嘉': [113.65,35.27],
+				'官渡': [113.85,35.1],
+                '竹贤': [113.3,35.22],
+				'湛河': [113.3,33.22],	
+                '博爱': [113.07,35.17],
+                '济源': [112.58,35.17],
+				'牡丹': [112.51,34.97],
+			    '瀛洲': [112.45,34.62],
+			    '嘉和': [112.47,35.12],
+				'嵩山': [113.3,34.9],
+			    '郑州': [113.62,34.75],
+                '花都': [113.8,34.1],
+				'香山': [113.2,34],
+				'祥符': [114.2,34.78],
+				'菊城': [114,34.75],
+				'庄周': [115.13,34.65],
+				'邵陵': [114,33.59],
+				'周口': [114.65,33.62],
+				'嵖岈': [114.05,32.97],
+		        '浉河': [114.07,32.13],
+			    '南阳': [112.52,33],
+				'白河': [112.53,32.6],
+				'群英': [112.1,32.5],
+				'陕州': [111.5,34.62],
+             
+            }
+        },
+        {
+            name: '',
+            type: 'map',
+            mapType: '河南',
+            data:[],
+            markLine : {
+                smooth:true,
+                effect : {
+                    show: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                itemStyle : {
+                    normal: {
+                        borderWidth:1,
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    }
+                },
+                data : [
+                    [{name:'彰德', smoothness:0.0}, {name:'洹安',value:50}],
+                    [{name:'洹安', smoothness:0.0}, {name:'仓颉',value:10}],
+                    [{name:'洹安', smoothness:0.0}, {name:'获嘉',value:50}],
+                    [{name:'获嘉', smoothness:0.0}, {name:'竹贤',value:50}],
+					[{name:'获嘉', smoothness:0.0}, {name:'嵩山',value:50}],
+				    [{name:'获嘉', smoothness:0.0}, {name:'塔铺',value:10}],
+				    [{name:'仓颉', smoothness:0.0}, {name:'塔铺',value:10}],
+				    [{name:'博爱', smoothness:0.0}, {name:'塔铺',value:50}],
+					[{name:'祥符', smoothness:0.0}, {name:'塔铺',value:50}],
+					[{name:'祥符', smoothness:0.0}, {name:'菊城',value:50}],
+					[{name:'庄周', smoothness:0.0}, {name:'菊城',value:10}],
+					[{name:'官渡', smoothness:0.0}, {name:'菊城',value:10}],	
+					[{name:'祥符', smoothness:0.0}, {name:'庄周',value:50}],
+					[{name:'祥符', smoothness:0.0}, {name:'塔铺',value:50}],
+					[{name:'济源', smoothness:0.0}, {name:'竹贤',value:50}],
+					[{name:'济源', smoothness:0.0}, {name:'博爱',value:50}],
+					[{name:'济源', smoothness:0.0}, {name:'牡丹',value:10}],
+					[{name:'瀛洲', smoothness:0.0}, {name:'牡丹',value:10}],
+					[{name:'瀛洲', smoothness:0.0}, {name:'嘉和',value:10}],
+					[{name:'陕州', smoothness:0.0}, {name:'嘉和',value:100}],
+					[{name:'陕州', smoothness:0.0}, {name:'瀛洲',value:50}],
+					[{name:'嵩山', smoothness:0.0}, {name:'牡丹',value:50}],
+					[{name:'嵩山', smoothness:0.0}, {name:'郑州',value:50}],
+					[{name:'嘉和', smoothness:0.0}, {name:'郑州',value:10}],
+					[{name:'官渡', smoothness:0.0}, {name:'郑州',value:50}],
+					[{name:'香山', smoothness:0.0}, {name:'郑州',value:10}],
+					[{name:'湛河', smoothness:0.0}, {name:'郑州',value:10}],
+					[{name:'湛河', smoothness:0.0}, {name:'白河',value:10}],
+					[{name:'湛河', smoothness:0.0}, {name:'邵陵',value:10}],
+					[{name:'邵陵', smoothness:0.0}, {name:'嵖岈',value:50}],
+					[{name:'嵖岈', smoothness:0.0}, {name:'浉河',value:50}],
+					[{name:'花都', smoothness:0.0}, {name:'祥符',value:50}],	
+					[{name:'花都', smoothness:0.0}, {name:'邵陵',value:50}],
+					[{name:'周口', smoothness:0.0}, {name:'邵陵',value:50}],
+					[{name:'香山', smoothness:0.0}, {name:'邵陵',value:10}],
+					[{name:'香山', smoothness:0.0}, {name:'嘉和',value:10}],
+					[{name:'香山', smoothness:0.0}, {name:'南阳',value:50}],
+					[{name:'南阳', smoothness:0.0}, {name:'白河',value:50}],
+					[{name:'群英', smoothness:0.0}, {name:'白河',value:50}],
+					
+                ]
+            },
+            markPoint : {
+                symbol:'emptyCircle',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 0
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
+                    }
+                },
+                data : [
+                    {name:'郑州',value:95},
+                    {name:'南阳',value:65},
+                    {name:'香山',value:35},
+					{name:'陕州',value:75},
+					{name:'仓颉',value:5},
+                ]
+            }
+        },
+       
+    ]
+};
+ </textarea>
+ </div>        
+<select id="theme-select" hidden="true"></select>
+<span id='wrong-message' style="color:red"></span>  
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="author" content="kener.linfeng@gmail.com">
+    <title>ECharts · Example</title>
+
+    <link rel="shortcut icon" href="../asset/ico/favicon.png">
+
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../asset/css/bootstrap.css" rel="stylesheet">
+    <link href="../asset/css/carousel.css" rel="stylesheet">
+    <link href="../asset/css/echartsHome.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./www/js/echarts.js"></script>
+    <script src="../asset/js/codemirror.js"></script>
+    <script src="../asset/js/javascript.js"></script>
+
+    <link href="../asset/css/codemirror.css" rel="stylesheet">
+    <link href="../asset/css/monokai.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="head"></div>
+
+
+    <div class="container-fluid">
+        <div class="row-fluid example">
+            <div id="sidebar-code" class="col-md-4">
+                <div class="well sidebar-nav">
+                    <div class="nav-header"><a href="#" onclick="autoResize()" class="glyphicon glyphicon-resize-full" id ="icon-resize" ></a>option</div>
+                    <textarea id="code" name="code">
+option = {
+    title : {
+        text: '未来一周气温变化',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} °C'
+            }
+        }
+    ],
+    series : [
+        {
+            name:'最高气温',
+            type:'line',
+            data:[11, 11, 15, 13, 12, 13, 10],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'最低气温',
+            type:'line',
+            data:[1, -2, 2, 5, 3, 2, 0],
+            markPoint : {
+                data : [
+                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                    </textarea>
+              </div><!--/.well -->
+            </div><!--/span-->
+            <div id="graphic" class="col-md-8">
+                <div id="main" class="main"></div>
+                <div>
+                    <button type="button" class="btn btn-sm btn-success" onclick="refresh(true)">刷 新</button>
+                    <span class="text-primary">切换主题</span>
+                    <select id="theme-select"></select>
+
+                    <span id='wrong-message' style="color:red"></span>
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
+        
+        </div><!--/.fluid-container-->
+
+    <footer id="footer"></footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../asset/js/jquery.min.js"></script> 
+    <script type="text/javascript">
+myChart.setOption({
+    // 声明一个 graphic component，里面有若干个 type 为 'circle' 的 graphic elements。
+    // 这里使用了 echarts.util.map 这个帮助方法，其行为和 Array.prototype.map 一样，但是兼容 es5 以下的环境。
+    // 用 map 方法遍历 data 的每项，为每项生成一个圆点。
+    graphic: echarts.util.map(data, function (dataItem, dataIndex) {
+        return {
+            // 'circle' 表示这个 graphic element 的类型是圆点。
+            type: 'circle',
+
+            shape: {
+                // 圆点的半径。
+                r: symbolSize / 2
+            },
+            // 用 transform 的方式对圆点进行定位。position: [x, y] 表示将圆点平移到 [x, y] 位置。
+            // 这里使用了 convertToPixel 这个 API 来得到每个圆点的位置，下面介绍。
+            position: myChart.convertToPixel('grid', dataItem),
+
+            // 这个属性让圆点不可见（但是不影响他响应鼠标事件）。
+            invisible: true,
+            // 这个属性让圆点可以被拖拽。
+            draggable: true,
+            // 把 z 值设得比较大，表示这个圆点在最上方，能覆盖住已有的折线图的圆点。
+            z: 100,
+            // 此圆点的拖拽的响应事件，在拖拽过程中会不断被触发。下面介绍详情。
+            // 这里使用了 echarts.util.curry 这个帮助方法，意思是生成一个与 onPointDragging
+            // 功能一样的新的函数，只不过第一个参数永远为此时传入的 dataIndex 的值。
+            ondrag: echarts.util.curry(onPointDragging, dataIndex)
+        };
+    })
+});
+// 拖拽某个圆点的过程中会不断调用此函数。
+// 此函数中会根据拖拽后的新位置，改变 data 中的值，并用新的 data 值，重绘折线图，从而使折线图同步于被拖拽的隐藏圆点。
+function onPointDragging(dataIndex) {
+    // 这里的 data 就是本文最初的代码块中声明的 data，在这里会被更新。
+    // 这里的 this 就是被拖拽的圆点。this.position 就是圆点当前的位置。
+    data[dataIndex] = myChart.convertFromPixel('grid', this.position);
+    // 用更新后的 data，重绘折线图。
+    myChart.setOption({
+        series: [{
+            id: 'a',
+            data: data
+        }]
+    });
+}
+window.addEventListener('resize', function () {
+    // 对每个拖拽圆点重新计算位置，并用 setOption 更新。
+    myChart.setOption({
+        graphic: echarts.util.map(data, function (item, dataIndex) {
+            return {
+                position: myChart.convertToPixel('grid', item)
+            };
+        })
+    });
+});
+myChart.setOption({
+    ...,
+    tooltip: {
+        // 表示不使用默认的『显示』『隐藏』触发规则。
+        triggerOn: 'none',
+        formatter: function (params) {
+            return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);
+        }
+    }
+});
+myChart.setOption({
+    graphic: echarts.util.map(data, function (item, dataIndex) {
+        return {
+            type: 'circle',
+            ...,
+            // 在 mouseover 的时候显示，在 mouseout 的时候隐藏。
+            onmousemove: echarts.util.curry(showTooltip, dataIndex),
+            onmouseout: echarts.util.curry(hideTooltip, dataIndex),
+        };
+    })
+});
+
+function showTooltip(dataIndex) {
+    myChart.dispatchAction({
+        type: 'showTip',
+        seriesIndex: 0,
+        dataIndex: dataIndex
+    });
+}
+
+function hideTooltip(dataIndex) {
+    myChart.dispatchAction({
+        type: 'hideTip'
+    });
+}
+
+    </script>
+    <script type="text/javascript" src="../asset/js/echartsHome.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <script src="../asset/js/echartsExample.js"></script>
+</body>
+</html>

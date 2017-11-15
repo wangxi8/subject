@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=gb2312">
+<title>策略表</title>
+<script type="text/javascript">var timeTicket;</script>
+<style type="text/css">
+.txtarea{width:55px;line-height:9px;cols:0px;rows:1;text-align:center;vertical-align:bottom;overflow:hidden; resize:none;BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid;}
+.txtarea2{width:115px;line-height:9px;cols:0px;rows:1;text-align:center;vertical-align:bottom;overflow:hidden; resize:none;BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid;}
+.td{width:20px}
+.td2{width:100px}
+.td3{width:100px}
+</style>
+</head>
+
+
+<body>
+<script language="javascript">
+var ttimee=1;
+var QQQfuhe=new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43.5,44.2,45.3,46.6,47.5,48.8,49.0,50.1,51.5,52.6,50.1,51.5,52.6);
+var WWWgongbuchang=new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,36.2,37.1,38.3,39.5,40.7,41.9,42.8,43.3,44.4,45.0,43.7,44.8,45.8);
+var changshaIndex=new Array(0.8881,0.815,0.7455,0.6796,0.6173,0.5586,0.5035,0.452,0.4041,0.3598,0.3191,0.282,0.2485,0.2186,0.21,0.20,0.20,0.195,0.1831,0.1748,0.1501,0.149,0.1115,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1);
+clearInterval(timeTicket);
+timeTicket = setInterval(function (){
+
+	form1.WD3.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH3.value=0;
+  form1.WGBC3.value=1-form1.WD3.value-form1.QFH7.value;
+	form1.WGB3.value=0;
+	form1.WD4.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH4.value=0;
+  form1.WGBC4.value=1-form1.WD4.value-form1.QFH7.value;
+	form1.WGB4.value=0;
+
+
+    form1.WD7.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH7.value=0;
+  form1.WGBC7.value=1-form1.WD7.value-form1.QFH7.value;
+	form1.WGB7.value=0;
+    form1.WD8.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH8.value=0;
+  form1.WGBC8.value=1-form1.WD8.value-form1.QFH7.value;
+	form1.WGB8.value=0;
+    form1.WD12.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH12.value=0;
+  form1.WGBC12.value=1-form1.WD12.value-form1.QFH7.value;
+	form1.WGB12.value=0;
+    form1.WD15.value=changshaIndex[ttimee];
+	form1.QFH15.value=QQQfuhe[ttimee];
+  form1.WGBC15.value=WWWgongbuchang[ttimee];
+	form1.WGB15.value=WWWgongbuchang[ttimee];
+    form1.WD16.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH16.value=((0.2+0.1*Math.random()).toFixed(2));
+  form1.WGBC16.value=Number((0.8+0.2*Math.random()).toFixed(2));
+	form1.WGB16.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD18.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH18.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC18.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD20.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH20.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC20.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD21.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH21.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC21.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD23.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH23.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC23.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD24.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH24.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC24.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD25.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH25.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC25.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD26.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH26.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC26.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD27.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH27.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC27.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD28.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH28.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC28.value=Number((0.8+0.2*Math.random()).toFixed(2));
+    form1.WD29.value=Number((0.8+0.1*Math.random()).toFixed(2));
+	form1.QFH29.value=((0.2+0.1*Math.random()).toFixed(2));
+	form1.WGBC29.value=Number((0.8+0.2*Math.random()).toFixed(2));    
+
+	
+	ttimee=ttimee+1;
+    if(ttimee==27) ttimee=1; 
+},1000)
+</script>
+
+<div style="overflow:auto;width:100%;height:100%;">
+ <form name="form1">
+ <table border="1" cellpadding="0">
+ 
+  <tr>
+   <td colspan=5; style="color:#04564A"><div align="center"; style="font-weight:bold;">策略表</div></td>
+  </tr>
+  
+  <tr style="width:400px" style="color:#04564A">
+   <th class="td" style="color:#FFFFFF; background-color:#7FB73C">节点号</th> <th class="td" style="color:#FFFFFF; background-color:#3D922B">总体指标</th> <th class="td2" style="color:#FFFFFF; background-color:#51B8C9" >风电功率指标</th>
+  <th class="td3" style="color:#FFFFFF; background-color:#4FB4DE">期望水电指标</th> 
+  <th class="td3" style="color:#FFFFFF; background-color:#3D922B">实际水电指标</th> 
+  </tr>  
+ 
+  <tr>
+   <td class="td">
+    <textarea class="txtarea">风电场1</textarea>
+   </td>
+   <td class="td">
+    <textarea name="WD3" id="WD3" class="txtarea"></textarea>
+   </td>
+    <td class="td2">
+    <textarea name="QFH3" id="QFH3" class="txtarea2"></textarea>
+   </td>
+    <td class="td3">
+    <textarea name="WGBC3" id="WGBC3" class="txtarea"></textarea> 
+    </td>
+        <td class="td3">
+    <textarea name="WGB3" id="WGB3" class="txtarea"></textarea> 
+    </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场2</textarea>
+   </td>
+   <td>
+    <textarea name="WD4" id="WD4" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH4" id="QFH4" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC4" id="WGBC4" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB4" id="WGB4" class="txtarea"></textarea>
+   </td>
+  </tr>   
+
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场3</textarea>
+   </td>
+   <td>
+    <textarea name="WD7" id="WD7" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH7" id="QFH7" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC7" id="WGBC7" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB7" id="WGB7" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场4</textarea>
+   </td>
+   <td>
+    <textarea name="WD8" id="WD8" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH8" id="QFH8" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC8" id="WGBC8" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB8" id="WGB8" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场5</textarea>
+   </td>
+   <td>
+    <textarea name="WD12" id="WD12" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH12" id="QFH12" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC12" id="WGBC12" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB12" id="WGB12" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场6</textarea>
+   </td>
+   <td>
+    <textarea name="WD15" id="WD15" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH15" id="QFH15" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC15" id="WGBC15" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB15" id="WGB15" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂1</textarea>
+   </td>
+   <td>
+    <textarea name="WD16" id="WD16" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH16" id="QFH16" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC16" id="WGBC16" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB16" id="WGB16" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂2</textarea>
+   </td>
+   <td>
+    <textarea name="WD18" id="WD18" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH18" id="QFH18" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC18" id="WGBC18" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB18" id="WGB18" class="txtarea"></textarea>
+   </td>
+  </tr>
+  
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂3</textarea>
+   </td>
+   <td>
+    <textarea name="WD20" id="WD20" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH20" id="QFH20" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC20" id="WGBC20" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB20" id="WGB20" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂4</textarea>
+   </td>
+   <td>
+    <textarea name="WD21" id="WD21" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH21" id="QFH21" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC21" id="WGBC21" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB21" id="WGB21" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂5</textarea>
+   </td>
+   <td>
+    <textarea name="WD23" id="WD23" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH23" id="QFH23" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC23" id="WGBC23" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB23" id="WGB23" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂6</textarea>
+   </td>
+   <td>
+    <textarea name="WD24" id="WD24" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH24" id="QFH24" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC24" id="WGBC24" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB24" id="WGB24" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂7</textarea>
+   </td>
+   <td>
+    <textarea name="WD25" id="WD25" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH25" id="QFH25" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC25" id="WGBC25" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB25" id="WGB25" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场7</textarea>
+   </td>
+   <td>
+    <textarea name="WD26" id="WD26" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH26" id="QFH26" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC26" id="WGBC26" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB26" id="WGB26" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂8</textarea>
+   </td>
+   <td>
+    <textarea name="WD27" id="WD27" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH27" id="QFH27" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC27" id="WGBC27" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB27" id="WGB27" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">风电场8</textarea>
+   </td>
+   <td>
+    <textarea name="WD28" id="WD28" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH28" id="QFH28" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC28" id="WGBC28" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB28" id="WGB28" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+  <tr>
+   <td>
+    <textarea class="txtarea">水电厂9</textarea>
+   </td>
+   <td>
+    <textarea name="WD29" id="WD29" class="txtarea"></textarea>
+   </td>
+    <td>
+    <textarea name="QFH29" id="QFH29" class="txtarea2"></textarea>
+   </td>
+    <td>
+    <textarea name="WGBC29" id="WGBC29" class="txtarea"></textarea>
+   </td>    <td>
+    <textarea name="WGB29" id="WGB29" class="txtarea"></textarea>
+   </td>
+  </tr>
+
+ </table>
+ </form>
+
+</div>
+ 
+</body>
+</html>
