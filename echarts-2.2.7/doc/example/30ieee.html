@@ -412,16 +412,16 @@
                         {
                             source: 0,
                             target: 1,
-                            symbolSize: [5, 20],
+                            // symbolSize: [5, 20],
                             label: {
                                 normal: {
-                                    show: true
+                                    // show: true
                                 }
                             },
                             lineStyle: {
                                 normal: {
-                                    width: 5,
-                                    curveness: 0.2
+                                    // width: 5,
+                                    // curveness: 0.2
                                 }
                             }
                         }, {
@@ -429,11 +429,11 @@
                             target: '节点2',
                             label: {
                                 normal: {
-                                    show: true
+                                    // show: true
                                 }
                             },
                             lineStyle: {
-                                normal: { curveness: 0.2 }
+                                // normal: { curveness: 0.2 }
                             }
                         }, {
                             source: '节点1',
@@ -446,7 +446,25 @@
                             target: '节点4'
                         }, {
                             source: '节点2',
-                            target: '节点5'
+                            target: '节点5',
+                            lineStyle:{
+                                normal:{
+                                    width:5,
+                                    color: {
+                                        type: 'linear',
+                                        x: 0,
+                                        y: 0,
+                                        x2: 0,
+                                        y2: 1,
+                                        colorStops: [{
+                                            offset: 0, color: 'yellow' // 0% 处的颜色
+                                        }, {
+                                            offset: 1, color: 'red' // 100% 处的颜色
+                                        }],
+                                        globalCoord: true // 缺省为 false
+                                    }
+                                }
+                            }
                         },
                         {
                             source: '节点2',
@@ -605,29 +623,34 @@
                             curveness: 0
                         }
                     },
-                    markPoint : {
-                        symbol:'image://../asset/img/wind.png',
-                        // symbolSize : function (v){
-                        //     return 10 + v/10
-                        // },
-                        // effect : {
-                        //     show: true,
-                        //     shadowBlur : 1
-                        // },
-                        // itemStyle:{
-                        //     normal:{
-                        //         label:{show:false}
-                        //     },
-                        //     emphasis: {
-                        //         label:{position:'top'}
-                        //     }
-                        // },
-                        // symbolRotate:45,
-                        data : [
-                            // {name:'节点2',},
-                           
-                        ]
+            markPoint : {
+                symbol:'pin',
+                symbolSize : function (v){
+                    return 10 + v/10
+                },
+                effect : {
+                    show: true,
+                    shadowBlur : 1
+                },
+                itemStyle:{
+                    normal:{
+                        label:{show:false}
+                    },
+                    emphasis: {
+                        label:{position:'top'}
                     }
+                },
+                symbolRotate:45,
+                data : [
+                    {
+                        name:'节点2',
+                        x: 800,
+                        y: 100,
+
+                    },
+
+                ]
+            }
                 },
                 {
                     name: 'PV节点',
