@@ -146,6 +146,22 @@
                                 }
                             }
                          },
+                          {
+                            symbolSize: [60, 60],
+                            symbolOffset: [0, 0],
+                            x: 800,
+                            y: 100,
+                            itemStyle: {
+                                normal: {
+                                    opacity: 0.2
+                                }
+                            },
+                            label:{
+                                normal:{
+                                    fontSize:10
+                                }
+                            },
+                        },
                          {
                             name: '节点4',
                             x: 800,
@@ -422,6 +438,10 @@
                                 normal: {
                                     // width: 5,
                                     // curveness: 0.2
+                                },
+                                emphasis:{
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                        shadowBlur: 10
                                 }
                             }
                         }, {
@@ -434,7 +454,13 @@
                             },
                             lineStyle: {
                                 // normal: { curveness: 0.2 }
-                            }
+                                                            emphasis:{
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                        shadowBlur: 10,
+                                        opacity:0.5
+                                }
+                            },
+
                         }, {
                             source: '节点1',
                             target: '节点3'
@@ -450,16 +476,28 @@
                             lineStyle:{
                                 normal:{
                                     width:5,
+                                    // color: {
+                                    //     type: 'linear',
+                                    //     x: 0,
+                                    //     y: 0,
+                                    //     x2: 0,
+                                    //     y2: 1,
+                                    //     colorStops: [{
+                                    //         offset: 0, color: 'yellow' // 0% 处的颜色
+                                    //     }, {
+                                    //         offset: 1, color: 'red' // 100% 处的颜色
+                                    //     }],
+                                    //     globalCoord: true // 缺省为 false
+                                    // }
                                     color: {
-                                        type: 'linear',
-                                        x: 0,
-                                        y: 0,
-                                        x2: 0,
-                                        y2: 1,
+                                        type: 'radial',
+                                        x: 0.5,
+                                        y: 0.5,
+                                        r: 0.5,
                                         colorStops: [{
-                                            offset: 0, color: 'yellow' // 0% 处的颜色
+                                            offset: 0, color: 'red' // 0% 处的颜色
                                         }, {
-                                            offset: 1, color: 'red' // 100% 处的颜色
+                                            offset: 1, color: 'green' // 100% 处的颜色
                                         }],
                                         globalCoord: true // 缺省为 false
                                     }
@@ -623,8 +661,84 @@
                             curveness: 0
                         }
                     },
+            markLine : {
+                symbol:['none','arrow'],
+                smooth:true,
+                effect : {
+                    show: true,
+                    loop: true,
+                    scaleSize: 1,
+                    period: 30,
+                    color: '#fff',
+                    shadowBlur: 10
+                },
+                
+                
+                bundling:{
+                enable: false,
+                maxTurningAngle: 3,
+                },
+                large:false,
+                precision:-1,
+                
+
+                
+                
+                itemStyle : {
+                    normal: {
+                        label:{show: false},
+                        borderWidth:1,
+                        
+                        lineStyle: {
+                            type: 'solid',
+                            shadowBlur: 10
+                        }
+                    },
+                    emphasis:{label:{show: true}}
+
+                },
+
+                data : 
+
+                {
+                    0:{
+                                x: 700,
+                                y: 1300
+                    },
+                    1:{
+                                                       x: 900,
+                                y: 1300 
+                    }
+                }
+
+                // [
+                //     // [{name:'节点1'},{name:'节点2'}],
+
+                //        [
+                //             {
+                //                 name: '两个屏幕坐标之间的标线',
+                //                 x: 700,
+                //                 y: 1300
+                //             },
+
+                //         ],  
+                        
+                //         [
+                //             {
+                //                 x: 900,
+                //                 y: 1300
+                //             }
+
+                //         ] 
+                    
+                    
+                  
+                    
+                // ]
+
+            },
             markPoint : {
-                symbol:'pin',
+                symbol:'rect',
                 symbolSize : function (v){
                     return 10 + v/10
                 },
