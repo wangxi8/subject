@@ -22,9 +22,20 @@
                 
                 textStyle:{
                     fontSize:18,
-                    color:'#04564A'
+                    // color:'#04564A'
+                    color:'white'
                 }
             },
+            dataRange: {
+                min : 0,
+                max : 100,
+                calculable : true,
+                color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+            backgroundColor: '#1b1b1b',
             legend: {
                 data:['PQ节点','PV节点','平衡节点'],
                 x:'40px',
@@ -438,6 +449,8 @@
                                 normal: {
                                     // width: 5,
                                     // curveness: 0.2
+                                    color:'green',
+                                    opacity:1,
                                 },
                                 emphasis:{
                                         shadowColor: 'rgba(0, 0, 0, 0.5)',
@@ -453,8 +466,12 @@
                                 }
                             },
                             lineStyle: {
-                                // normal: { curveness: 0.2 }
-                                                            emphasis:{
+                                normal: { 
+                                    color: 'green', 
+                                    opacity:1,
+
+                                },
+                                emphasis:{
                                         shadowColor: 'rgba(0, 0, 0, 0.5)',
                                         shadowBlur: 10,
                                         opacity:0.5
@@ -463,13 +480,34 @@
 
                         }, {
                             source: '节点1',
-                            target: '节点3'
+                            target: '节点3',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                    opacity:1,
+
+                                }
+                            }
                         }, {
                             source: '节点2',
-                            target: '节点4'
+                            target: '节点4',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                    opacity:1,
+
+                                }
+                            }
                         }, {
                             source: '节点3',
-                            target: '节点4'
+                            target: '节点4',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                    opacity:1,
+
+                                }
+                            }
                         }, {
                             source: '节点2',
                             target: '节点5',
@@ -489,6 +527,7 @@
                                     //     }],
                                     //     globalCoord: true // 缺省为 false
                                     // }
+                                    opacity:1,
                                     color: {
                                         type: 'radial',
                                         x: 0.5,
@@ -506,151 +545,336 @@
                         },
                         {
                             source: '节点2',
-                            target: '节点5'
+                            target: '节点5',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
-                                                {
+                        {
                             source: '节点2',
-                            target: '节点6'
+                            target: '节点6',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点4',
-                            target: '节点6'
+                            target: '节点6',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点5',
-                            target: '节点7'
+                            target: '节点7',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },                        
                         {
                             source: '节点6',
-                            target: '节点7'
+                            target: '节点7',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点6',
-                            target: '节点8'
+                            target: '节点8',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点6',
-                            target: '节点9'
+                            target: '节点9',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点6',
-                            target: '节点10'
+                            target: '节点10',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点9',
-                            target: '节点11'
+                            target: '节点11',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点9',
-                            target: '节点10'
+                            target: '节点10',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点4',
-                            target: '节点12'
+                            target: '节点12',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点12',
-                            target: '节点13'
+                            target: '节点13',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点12',
-                            target: '节点14'
+                            target: '节点14',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点12',
-                            target: '节点15'
+                            target: '节点15',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点12',
-                            target: '节点16'
+                            target: '节点16',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点14',
-                            target: '节点15'
+                            target: '节点15',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点16',
-                            target: '节点17'
+                            target: '节点17',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点15',
-                            target: '节点18'
+                            target: '节点18',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点18',
-                            target: '节点19'
+                            target: '节点19',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点19',
-                            target: '节点20'
+                            target: '节点20',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点10',
-                            target: '节点20'
+                            target: '节点20',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点10',
-                            target: '节点17'
+                            target: '节点17',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点10',
-                            target: '节点21'
+                            target: '节点21',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点10',
-                            target: '节点22'
+                            target: '节点22',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点21',
-                            target: '节点22'
+                            target: '节点22',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点15',
-                            target: '节点23'
+                            target: '节点23',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点22',
-                            target: '节点24'
+                            target: '节点24',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点23',
-                            target: '节点24'
+                            target: '节点24',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点24',
-                            target: '节点25'
+                            target: '节点25',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点25',
-                            target: '节点26'
+                            target: '节点26',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点25',
-                            target: '节点27'
+                            target: '节点27',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点28',
-                            target: '节点27'
+                            target: '节点27',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点27',
-                            target: '节点29'
+                            target: '节点29',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点27',
-                            target: '节点30'
+                            target: '节点30',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点29',
-                            target: '节点30'
+                            target: '节点30',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点8',
-                            target: '节点28'
+                            target: '节点28',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
                         {
                             source: '节点6',
-                            target: '节点28'
+                            target: '节点28',
+                            lineStyle:{
+                                normal:{
+                                    color: 'green',
+                                }
+                            }
                         },
 
                     ],
@@ -828,8 +1052,25 @@
             // console.log(option.series[0].data[i]);
             option.series[0].data[i].label.normal.fontSize = 12;
         };
+        var lineBlur = [5];
+
+        ttimee=1;
+        var timeTicket;
+        clearInterval(timeTicket);
+        timeTicket = setInterval(function (){
+            console.log(1);
+            var randnum = Math.random();
+            for (var j = lineBlur.length - 1; j >= 0; j--) {
+                // console.log(option.series[0].data[i]);
+                option.series[0].links[lineBlur[j]].lineStyle.normal.opacity = randnum;
+                option.series[0].links[lineBlur[j]].lineStyle.normal.color = '#F85437';
+            };            
+            ttimee=ttimee+3;
+            myChart.setOption(option,true);
+
+        },1000)
+
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
     </script>
 </body>
 </html>
