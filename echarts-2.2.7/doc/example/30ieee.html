@@ -252,15 +252,15 @@
                     color:'white'
                 }
             },
-            dataRange: {
-                min : 0,
-                max : 100,
-                calculable : true,
-                color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
-                textStyle:{
-                    color:'#fff'
-                }
-            },
+            // dataRange: {
+            //     min : 0,
+            //     max : 1000000,
+            //     calculable : true,
+            //     color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+            //     textStyle:{
+            //         color:'#fff'
+            //     }
+            // },
             backgroundColor: '#1b1b1b',
             legend: {
                 data:['PQ节点','PV节点','平衡节点'],
@@ -319,32 +319,15 @@
                             },
                             label:{
                                 normal:{
-                                    show:true,
-        formatter: [
-            '{b|U:1}',
-            '{a|节点1}',
-            
-        ].join('\n'),
+                                    // show:true,
 
-        rich: {
-                        b: {
-                color: 'white',
-                height: 40,
-                position:['10','10'],
-
-            },
-            a: {
-                color: 'white',
-                lineHeight: 10,
-                position:['10','10'],
-            },
-
-
-        }
                                 }
                             },
                             itemStyle:{
                                 normal:{
+                                    color:'blue',
+                                },
+                                emphasis:{
                                     color:'blue',
                                 }
                             }
@@ -409,22 +392,24 @@
                                 }
                             }
                          },
-                          {
-                            symbolSize: [60, 60],
-                            symbolOffset: [0, 0],
-                            x: 800,
-                            y: 100,
-                            itemStyle: {
-                                normal: {
-                                    opacity: 0.2
-                                }
-                            },
-                            label:{
-                                normal:{
-                                    fontSize:10
-                                }
-                            },
-                        },
+                         //光晕
+                        //   {
+                        //     symbolSize: [60, 60],
+                        //     symbolOffset: [0, 0],
+                        //     x: 800,
+                        //     y: 100,
+                        //     itemStyle: {
+                        //         normal: {
+                        //             color: '#85BF41',
+                        //             opacity: 0.2
+                        //         }
+                        //     },
+                        //     label:{
+                        //         normal:{
+                        //             fontSize:10
+                        //         }
+                        //     },
+                        // },
                          {
                             name: '节点4',
                             x: 800,
@@ -686,7 +671,7 @@
                             }
                          }
                      ],
-                     links: [],
+                     // links: [],
                     links: [
                         // {
                         //     source: 0,
@@ -1339,117 +1324,89 @@
                         },
 
                     ],
-                    lineStyle: {
-                        normal: {
-                            opacity: 0.9,
-                            width: 2,
-                            curveness: 0
-                        }
-                    },
-            markLine : {
-                symbol:['none','arrow'],
-                smooth:true,
-                effect : {
-                    show: true,
-                    loop: true,
-                    scaleSize: 1,
-                    period: 30,
-                    color: '#fff',
-                    shadowBlur: 10
-                },
+                    // lineStyle: {
+                    //     normal: {
+                    //         opacity: 0.9,
+                    //         width: 2,
+                    //         curveness: 0
+                    //     }
+                    // },
+            // markLine : {
+            //     symbol:['none','arrow'],
+            //     smooth:true,
+            //     effect : {
+            //         show: true,
+            //         loop: true,
+            //         scaleSize: 1,
+            //         period: 30,
+            //         color: '#fff',
+            //         shadowBlur: 10
+            //     },
                 
                 
-                bundling:{
-                enable: false,
-                maxTurningAngle: 3,
-                },
-                large:false,
-                precision:-1,
+            //     bundling:{
+            //     enable: false,
+            //     maxTurningAngle: 3,
+            //     },
+            //     large:false,
+            //     precision:-1,
                 
 
                 
                 
-                itemStyle : {
-                    normal: {
-                        label:{show: false},
-                        borderWidth:1,
+            //     itemStyle : {
+            //         normal: {
+            //             label:{show: false},
+            //             borderWidth:1,
                         
-                        lineStyle: {
-                            type: 'solid',
-                            shadowBlur: 10
-                        }
-                    },
-                    emphasis:{label:{show: true}}
+            //             lineStyle: {
+            //                 type: 'solid',
+            //                 shadowBlur: 10
+            //             }
+            //         },
+            //         emphasis:{label:{show: true}}
 
-                },
+            //     },
 
-                data : 
+            //     data : 
 
-                {
-                    0:{
-                                x: 700,
-                                y: 1300
-                    },
-                    1:{
-                                                       x: 900,
-                                y: 1300 
-                    }
-                }
+            //     {
+            //         0:{
+            //                     x: 700,
+            //                     y: 1300
+            //         },
+            //         1:{
+            //                                            x: 900,
+            //                     y: 1300 
+            //         }
+            //     }
 
-                // [
-                //     // [{name:'节点1'},{name:'节点2'}],
+            //     // [
+            //     //     // [{name:'节点1'},{name:'节点2'}],
 
-                //        [
-                //             {
-                //                 name: '两个屏幕坐标之间的标线',
-                //                 x: 700,
-                //                 y: 1300
-                //             },
+            //     //        [
+            //     //             {
+            //     //                 name: '两个屏幕坐标之间的标线',
+            //     //                 x: 700,
+            //     //                 y: 1300
+            //     //             },
 
-                //         ],  
+            //     //         ],  
                         
-                //         [
-                //             {
-                //                 x: 900,
-                //                 y: 1300
-                //             }
+            //     //         [
+            //     //             {
+            //     //                 x: 900,
+            //     //                 y: 1300
+            //     //             }
 
-                //         ] 
+            //     //         ] 
                     
                     
                   
                     
-                // ]
+            //     // ]
 
-            },
-            markPoint : {
-                symbol:'rect',
-                symbolSize : function (v){
-                    return 10 + v/10
-                },
-                effect : {
-                    show: true,
-                    shadowBlur : 1
-                },
-                itemStyle:{
-                    normal:{
-                        label:{show:false}
-                    },
-                    emphasis: {
-                        label:{position:'top'}
-                    }
-                },
-                symbolRotate:45,
-                data : [
-                    {
-                        name:'节点2',
-                        x: 800,
-                        y: 100,
-
-                    },
-
-                ]
-            }
+            // },
                 },
                 {
                     name: 'PV节点',
@@ -1513,59 +1470,89 @@
             // console.log(option.series[0].data[i]);
             option.series[0].data[i].label.normal.fontSize = 12;
         };
-        console.log(option.series[0].links.length);
-        console.log(lineData.length);
+        // console.log(option.series[0].links.length);
+        // console.log(lineData.length);
         var snode = '';
         var enode = '';
         var ypower = 0;
         var wpower = 0;
-        //给线路赋值
+        // //给线路赋值
         for (var i = option.series[0].links.length - 1; i >= 0; i--) {
             // console.log(option.series[0].data[i]);
             //处理数据
             snode = option.series[0].links[i].source.slice(2);
             enode = option.series[0].links[i].target.slice(2);
+            uv = notes[snode-1][0];
             ypower = notes[snode-1][2]+notes[snode-1][4]+notes[enode-1][2]+notes[enode-1][4];
             wpower = notes[snode-1][3]+notes[snode-1][5]+notes[enode-1][3]+notes[enode-1][5];
-            option.series[0].links[i].label.normal['formatter'] = "P:"+ypower.toFixed(3)+"\nQ:"+wpower.toFixed(3);
+            option.series[0].links[i].label.normal['formatter'] = "U:"+uv+"\nP:"+ypower.toFixed(3)+"\nQ:"+wpower.toFixed(3);
             if(ypower>1)
             {
                 option.series[0].links[i].lineStyle.normal.color = 'red';
+                option.series[0].links[i].lineStyle.normal.width = 5;
             }
         };
 
         //给节点赋值
-        // for (var i = option.series[0].data.length - 1; i >= 0; i--) {
-        //     // console.log(option.series[0].data[i]);
-        //     //处理数据
-        //     option.series[0].data[i].label.normal['formatter'] = [option.series[0].data[i].name,'U:'+lineData[i]].join('\n');
-        //     option.series[0].data[i].label.normal['rich'] = [option.series[0].data[i].name]['position'] = 'inside';
-        //     // option.series[0].data[i].label.normal['rich']=['U']['position'] = 'top';
-        //     if(lineData[i]>1.05)
-        //     {
-        //         // option.series[0].links[i].lineStyle.normal.color = 'red';
-        //     }
-        // };        
+        for (var i = option.series[0].data.length - 1; i >= 0; i--) {
+            // console.log(option.series[0].data[i]);
+            //处理数据
+            // option.series[0].data[i].label.normal['formatter'] = [option.series[0].data[i].name,'U:'+lineData[i]].join('\n');
+            // option.series[0].data[i].label.normal['rich'] = [option.series[0].data[i].name]['position'] = 'inside';
+            // option.series[0].data[i].label.normal['rich']=['U']['position'] = 'top';
+            //PQ：0.95-1.05 PV：0.95-1.10
+            if(lineData[i]>=1.05)
+            {
+                // option.series[0].links[i].lineStyle.normal.color = 'yellow';
+                var newnote = 
+                        {'symbolSize':'',
+                        'symbolOffset':'',
+                        'itemStyle':{
+                            'normal':{
+                                'color':'',
+                                'opacity':''
+                            }
+                        },
+                        'label':{
+                            'normal':{
+                                'fontSize':''
+                            }
+                            
+                        },
+                        'x':'',
+                        'y':''
+                    };
+                newnote.symbolSize = [60, 60];
+                newnote.symbolOffset = [0, 0];
+                newnote.itemStyle.normal.color= 'yellow';
+                newnote.itemStyle.normal.opacity = 0.2;
+                newnote.label.normal.fontSize = 10;
+                newnote.x = option.series[0].data[i].x;
+                newnote.y = option.series[0].data[i].y;
+
+                option.series[0].data.push(newnote);
+            }
+        };        
 
 
 
-        var lineBlur = [4];
+        // var lineBlur = [4];
 
-        ttimee=1;
-        var timeTicket;
-        clearInterval(timeTicket);
-        timeTicket = setInterval(function (){
-            // console.log(1);
-            var randnum = Math.random();
-            for (var j = lineBlur.length - 1; j >= 0; j--) {
-                // console.log(option.series[0].data[i]);
-                option.series[0].links[lineBlur[j]].lineStyle.normal.opacity = randnum;
-                option.series[0].links[lineBlur[j]].lineStyle.normal.color = '#F85437';
-            };            
-            ttimee=ttimee+3;
+        // ttimee=1;
+        // var timeTicket;
+        // clearInterval(timeTicket);
+        // timeTicket = setInterval(function (){
+        //     // console.log(1);
+        //     var randnum = Math.random();
+        //     for (var j = lineBlur.length - 1; j >= 0; j--) {
+        //         // console.log(option.series[0].data[i]);
+        //         option.series[0].links[lineBlur[j]].lineStyle.normal.opacity = randnum;
+        //         option.series[0].links[lineBlur[j]].lineStyle.normal.color = '#F85437';
+        //     };            
+        //     ttimee=ttimee+3;
             myChart.setOption(option,true);
 
-        },1000)
+        // },1000)
 
         // 使用刚指定的配置项和数据显示图表。
     </script>
