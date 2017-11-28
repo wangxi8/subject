@@ -1493,7 +1493,8 @@
             }
         };
 
-        //给节点赋值
+        var markNotes = [];
+                    //给节点赋值
         for (var i = option.series[0].data.length - 1; i >= 0; i--) {
             // console.log(option.series[0].data[i]);
             //处理数据
@@ -1525,34 +1526,40 @@
                 newnote.symbolSize = [60, 60];
                 newnote.symbolOffset = [0, 0];
                 newnote.itemStyle.normal.color= 'yellow';
-                newnote.itemStyle.normal.opacity = 0.2;
+                newnote.itemStyle.normal.opacity = 0.1;
                 newnote.label.normal.fontSize = 10;
                 newnote.x = option.series[0].data[i].x;
                 newnote.y = option.series[0].data[i].y;
+                dataOrder = option.series[0].data.push(newnote);
+                markNotes.push(dataOrder-1);
 
-                option.series[0].data.push(newnote);
             }
-        };        
+        };         
+        console.log(markNotes);
+        var lineBlur = [4];
 
+        ttimee=1;
+        var timeTicket;
+        clearInterval(timeTicket);
+        timeTicket = setInterval(function (){
+            // console.log(1);
+            var randnum = Math.random();
+            for (var j = lineBlur.length - 1; j >= 0; j--) {
+                // console.log(option.series[0].data[i]);
+                option.series[0].links[lineBlur[j]].lineStyle.normal.opacity = randnum;
+                option.series[0].links[lineBlur[j]].lineStyle.normal.color = '#F85437';
+            }; 
 
+            //标注点闪烁
+            for (var k = markNotes.length - 1; k >= 0; k--) {
+                // console.log(dataOrder = option.series[0].data[markNotes[k]].itemStyle.normal.opacity);
+               option.series[0].data[markNotes[k]].itemStyle.normal.opacity = randnum;
+            };
 
-        // var lineBlur = [4];
-
-        // ttimee=1;
-        // var timeTicket;
-        // clearInterval(timeTicket);
-        // timeTicket = setInterval(function (){
-        //     // console.log(1);
-        //     var randnum = Math.random();
-        //     for (var j = lineBlur.length - 1; j >= 0; j--) {
-        //         // console.log(option.series[0].data[i]);
-        //         option.series[0].links[lineBlur[j]].lineStyle.normal.opacity = randnum;
-        //         option.series[0].links[lineBlur[j]].lineStyle.normal.color = '#F85437';
-        //     };            
-        //     ttimee=ttimee+3;
+            ttimee=ttimee+3;
             myChart.setOption(option,true);
 
-        // },1000)
+        },1000)
 
         // 使用刚指定的配置项和数据显示图表。
     </script>
