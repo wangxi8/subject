@@ -231,6 +231,9 @@
             0.019,
             ]
         ];
+
+        console.log(notes);
+
         //母线电压
         var lineData = [1.0500,1.0338,1.0309,1.0258,1.0058,1.0214,1.0073,1.0230,1.0583,1.0527,1.0913,1.0564,1.0883,1.0428,1.0393,1.0476,1.0459,1.0319 ,1.0307,1.0354,1.0404,1.0409,1.0314,1.0292,1.0298,1.0124,1.0388,1.0177,1.0192,1.0080
         ];
@@ -306,7 +309,7 @@
                     },
                     lineStyle:{
                         normal:{
-                            width:3,
+                            width:2,
                         },
                     },
                     data: [
@@ -336,7 +339,7 @@
                             y: 300,
                             label:{
                                 normal:{
-                                    fontSize:5
+                                    fontSize:10
                                 }
                             }
                          }, 
@@ -1464,10 +1467,9 @@
                 }
             ]
         };
-        //设置节点字体大小
         for (var i = option.series[0].data.length - 1; i >= 0; i--) {
             // console.log(option.series[0].data[i]);
-            option.series[0].data[i].label.normal.fontSize = 10;
+            option.series[0].data[i].label.normal.fontSize = 12;
         };
         // console.log(option.series[0].links.length);
         // console.log(lineData.length);
@@ -1501,7 +1503,7 @@
             // option.series[0].data[i].label.normal['rich'] = [option.series[0].data[i].name]['position'] = 'inside';
             // option.series[0].data[i].label.normal['rich']=['U']['position'] = 'top';
             //PQ：0.95-1.05 PV：0.95-1.10
-            if(lineData[i]>=1.05 && i !== 0)
+            if(lineData[i]>=1.05)
             {
                 // option.series[0].links[i].lineStyle.normal.color = 'yellow';
                 var newnote = 
@@ -1522,7 +1524,7 @@
                         'x':'',
                         'y':''
                     };
-                newnote.symbolSize = [40, 40];
+                newnote.symbolSize = [60, 60];
                 newnote.symbolOffset = [0, 0];
                 newnote.itemStyle.normal.color= 'yellow';
                 newnote.itemStyle.normal.opacity = 0.1;
