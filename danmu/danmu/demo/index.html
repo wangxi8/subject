@@ -45,28 +45,30 @@
 </div>
 <!--控制区-->
 <div class="ctr" >
-  <button type="button"  onclick="pauser()">暂停</button>  &nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="button"  onclick="resumer() ">继续</button>&nbsp;&nbsp;&nbsp;&nbsp;
-  显示:<input type='checkbox' checked='checked' id='ishide' value='is' onchange='changehide()'> &nbsp;&nbsp;&nbsp;&nbsp;
-  透明度:
-  <input type="range" name="op" id="op" onchange="op()" value="100"> <br>
-  当前运行时间(秒)：<span id="time"></span>&nbsp;&nbsp;
+  <button type="button"  onclick="pauser()" style="display:none">暂停</button>  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button"  onclick="resumer() " style="display:none">继续</button>&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- 显示: -->
+  <input type='checkbox' checked='checked' id='ishide' value='is' onchange='changehide()' style="display:none"> &nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- 透明度: -->
+  <input type="range" name="op" id="op" onchange="op()" value="100" style="display:none"> <br>
+  当前运行时间(秒)：
+  <span id="time" ></span>&nbsp;&nbsp;
   <!--设置当前弹幕时间(秒)： <input type="text" id="set_time" max=20 />
   <button type="button"  onclick="settime()">设置</button>-->
   <br>
   发送预测风电数据:
-  <select  name="color" id="color" >
+  <select  name="color" id="color" style="display:none">
     <option value="white">白色</option>
     <option value="red">红色</option>
     <option value="green">绿色</option>
     <option value="blue">蓝色</option>
     <option value="yellow">黄色</option>
   </select>
-  <select name="size" id="text_size" >
+  <select name="size" id="text_size" style="display:none">
     <option value="1">大文字</option>
     <option value="0">小文字</option>
   </select>
-  <select name="position" id="position"   >
+  <select name="position" id="position"  style="display:none" >
     <option value="0">滚动</option>
     <option value="1">顶端</option>
     <option value="2">底端</option>
@@ -96,7 +98,11 @@
 		var text_obj= evt.data +',"time":'+time+'}';//获取加上当前时间
 		console.log(text_obj);
 		var new_obj=eval('('+text_obj+')');
-		$('#danmu').danmu("addDanmu",new_obj);//添加弹幕
+    console.log(new_obj);
+    var htmls = $('#danmu').html();
+    htmls = htmls+','+new_obj.text;
+    $('#danmu').html(htmls);
+		// $('#danmu').danmu("addDanmu",new_obj);//添加弹幕
 	};
 	
 	websocket.onerror = function (evt, e) {
