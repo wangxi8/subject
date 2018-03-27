@@ -4,7 +4,69 @@ $wind = fopen("./matlab/reality_data/wind.txt", "r") or die("Unable to open file
 $hydro = fopen("./matlab/reality_data/hydro.txt", "r") or die("Unable to open file!");
 $total =  fread($myfile,filesize("./matlab/reality_data/total.txt"));
 $wind =  fread($wind,filesize("./matlab/reality_data/wind.txt"));
+// var_dump($wind);
+
+
+$wind = explode(',', $wind);
+$totalarr = explode(',', $total);
+//1111111111111111111111111111111111111111111
+// $total = explode(',', $total);
+// for ($m=0; $m < count($total); $m++) { 
+//     if($m%2 == 0) continue;
+//     unset($total[$m]);
+// }
+// $total = implode( $total,',');
+// for ($n=0; $n < count($wind); $n++) { 
+//     if($n%2 == 0) continue;
+//     unset($wind[$n]);
+// }
+// $wind = implode( $wind,',');
+//1111111111111111111111111111111111111111111
+//222222222222222222222222222222222222222222222222222222
+
+$windpro = $wind;
+$winds = [];
+for ($i=0; $i < count($wind); $i++) { 
+    $b = $i+1;
+        if ($b == 96) 
+        continue;
+    $a = $wind[$b]-$wind[$i];
+    // $winds[$i] = $wind[$i];
+    if($i == 0)
+        $winds[$i] = $wind[$i];
+// echo $a;
+    if(abs($a)>0.10 ){
+        // echo $i;
+        $winds[$b] = $wind[$i] + $a*0.3;
+        $wind[$b] = $wind[$i];
+    }else{
+        $winds[$b] = $wind[$i];
+    }
+}
+$wind = implode($winds, ',');
+//222222222222222222222222222222222222222222222222222222
+
+// var_dump($wind);
+
+// exit;
 $hydro =  fread($hydro,filesize("./matlab/reality_data/hydro.txt"));
+
+$hydro = explode(',',$hydro);
+//1111111111111111111111111111111111111111111
+
+// for ($o=0; $o < count($hydro); $o++) { 
+//     if($o%2 == 0) continue;
+//     unset($hydro[$o]);
+// }
+//1111111111111111111111111111111111111111111
+//222222222222222222222222222222222222222222222222222222
+// for ($j=0; $j < count($hydro); $j++) { 
+//     $hydro[$j] = $totalarr[$j]-$winds[$j];
+//     // echo $c;
+//     // $hydro[$j] = $hydro[$j]+$c;
+// }\
+//222222222222222222222222222222222222222222222222222222
+$hydro = implode($hydro, ',');  
 fclose($myfile);
 
 ?>
@@ -18,7 +80,7 @@ fclose($myfile);
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main" style="width: 1000px;height:600px;margin:50px auto;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -46,7 +108,11 @@ option = {
     },
     title: {
         left: 'center',
-        text: '大数据量面积图',
+        text: '风电、水电、风水协同输出功率96节点曲线图',
+                subtext: '下一页',  
+        sublink:'./00line_reality_data_full.php',
+        subtarget:'self',
+        padding: 5,
     },
     toolbox: {
         feature: {
@@ -60,14 +126,27 @@ option = {
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: [<?php for($i=0;$i<96;$i++){echo $i.','; }?>]
+        data: [<?php for($i=0;$i<96;$i++){
+//1111111111111111111111111111111111111111111
+              
+                // if($i%2 != 0) continue;
+//1111111111111111111111111111111111111111111
+              
+                echo $i.','; 
+            }?>]
     },
     yAxis: {
         type: 'value',
         boundaryGap: [0, '100%'],
         max:1.4,
         min:0,
+        name:'有功功率/标幺值',
         splitNumber:7
+    },
+    legend:{
+        data:['总输出', '风电', '水电'],
+        x:'center',
+        y:'bottom'
     },
     // dataZoom: [{
     //     type: 'inside',
@@ -119,20 +198,20 @@ option = {
             sampling: 'average',
             itemStyle: {
                 normal: {
-                    color: 'rgb(157,196,224)'
+                    color: 'rgb(255,255,125)'
                 }
             },
-            // areaStyle: {
-            //     normal: {
-            //         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            //             offset: 0,
-            //             color: 'rgb(157,196,224)'
-            //         }, {
-            //             offset: 1,
-            //             color: 'rgb(190,242,255)'
-            //         }])
-            //     }
-            // },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255,255,125,0.5)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(255,255,125,0.5)'
+                    }])
+                }
+            },
             data: wind
         },
         {
@@ -143,20 +222,20 @@ option = {
             sampling: 'average',
             itemStyle: {
                 normal: {
-                    color: 'rgb(135,203,204)'
+                    color: 'rgb(82,166,71)'
                 }
             },
-            // areaStyle: {
-            //     normal: {
-            //         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            //             offset: 0,
-            //             color: 'rgb(135,203,204)'
-            //         }, {
-            //             offset: 1,
-            //             color: 'rgb(135,203,204)'
-            //         }])
-            //     }
-            // },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(82,166,71,0.1)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(82,166,71,0.1)'
+                    }])
+                }
+            },
             data: hydro
         },
     ]
